@@ -3,6 +3,7 @@ const Models = require('../models')
 exports.getTaksByBoard = (boardId) => {
     return new Promise((resolve, reject) => {
         Models.Taks.findAll({ 
+            include : ['subtaks'],
             where : { boardId } 
         }).then(res => {
             resolve(res)
