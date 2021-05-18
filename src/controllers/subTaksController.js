@@ -16,3 +16,35 @@ exports.add = (req, res) => {
         })
     })
 }
+
+exports.edit = (req, res) => {
+    const { id } = req.params
+
+    subTaksService.updateData(id, req.body).then(() => {
+        res.json({
+            status : 'sukses',
+            message : 'berhasil mengubah'
+        })
+    }).catch(err => {
+        res.json({
+            status : 'error',
+            message : err
+        })
+    })
+}
+
+exports.delete = (req, res) => {
+    const { id } = req.params
+
+    subTaksService.deleteData(id).then(() => {
+        res.json({
+            status : 'sukses',
+            message : 'berhasil di hapus'
+        })
+    }).catch(err => {
+        res.json({
+            status : 'error',
+            message : err
+        })
+    })
+}
