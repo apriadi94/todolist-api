@@ -17,14 +17,19 @@ module.exports = (sequelize, DataTypes) => {
   Taks.init({
     boardId: {
       type : DataTypes.INTEGER,
-      references: { model: 'Boards', key: 'id' }
+      references: { model: 'boards', key: 'id' },
+      field: 'board_id',
     },
     taksName: {
       type : DataTypes.STRING,
+      field: 'taks_name',
     }
   }, {
     sequelize,
     modelName: 'Taks',
+    tableName : 'taks',
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
   });
   return Taks;
 };

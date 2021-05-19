@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('SubTaks', {
+    await queryInterface.createTable('subtaks', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -10,25 +10,29 @@ module.exports = {
       },
       taksId: {
         type: Sequelize.INTEGER,
-        references: { model: 'Taks', key: 'id' }
+        references: { model: 'taks', key: 'id' },
+        field: 'taks_id',
       },
       subTaksName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        field: 'subtaks_name',
       },
       status: {
         type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        field: 'created_at',
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        field: 'updated_at',
       }
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('SubTaks');
+    await queryInterface.dropTable('subtaks');
   }
 };

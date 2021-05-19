@@ -16,13 +16,20 @@ module.exports = (sequelize, DataTypes) => {
   SubTaks.init({
     taksId: {
       type : DataTypes.INTEGER,
-      references: { model: 'Taks', key: 'id' }
+      references: { model: 'taks', key: 'id' },
+      field: 'taks_id',
     },
-    subTaksName: DataTypes.STRING,
+    subTaksName: {
+      type : DataTypes.STRING,
+      field: 'subtaks_name',
+    },
     status: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'SubTaks',
+    tableName : 'subtaks',
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
   });
   return SubTaks;
 };

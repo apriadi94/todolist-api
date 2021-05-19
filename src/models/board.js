@@ -15,10 +15,16 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Board.init({
-    boardName: DataTypes.STRING
+    boardName: {
+      type : DataTypes.STRING,
+      field: 'board_name',
+    }
   }, {
     sequelize,
     modelName: 'Board',
+    tableName : 'boards',
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
   });
   return Board;
 };
