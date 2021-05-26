@@ -15,21 +15,21 @@
 |delete data| delete     | /id           |                         |
 
 
-> Taks- Url : http://{HOST}/api/taks
+> Task- Url : http://{HOST}/api/task
 
 |Action     | Method     | Endpoint      | Parameter|
 |-----------| ---------- |:-------------:| ---------------------------------------|
 |get data   | get        |               |?boardId=1                              |
-|add data   | post       | /             |{"boardId" : 4, "taksName" : "string" } |
-|edit data  | put        | /id           |{"taksName" : "string"}                 |
+|add data   | post       | /             |{"boardId" : 4, "taskName" : "string" } |
+|edit data  | put        | /id           |{"taskName" : "string"}                 |
 |delete data| delete     | /id           |                                        |
 
-> Sub Taks- Url : http://{HOST}/api/subtaks
+> Sub Task- Url : http://{HOST}/api/subtask
 
 |Action     | Method     | Endpoint      | Parameter|
 |-----------| ---------- |:-------------:| ---------------------------------------------|
-|add data   | post       | /             |{"taksId" : 2, "subTaksName" : "string"}      |
-|edit data  | put        | /id           |{"subTaksName" : "string", status" : boolean} |
+|add data   | post       | /             |{"taskId" : 2, "subTaskName" : "string"}      |
+|edit data  | put        | /id           |{"subTaskName" : "string", status" : boolean} |
 |delete data| delete     | /id           |                                              |
 
 
