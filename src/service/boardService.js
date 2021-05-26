@@ -1,10 +1,12 @@
 const Models = require('../models')
+const { logger } = require('../../utils/logger')
 
 exports.getAllData = () => {
     return new Promise((resolve, reject) => {
         Models.Board.findAll().then(res => {
             resolve(res)
         }).catch(err => {
+            logger.error(err);
             reject(err)
         })
     })
@@ -25,8 +27,10 @@ exports.getDataById = (id) => {
                resolve(res)
             }else{
                reject('data tidak ditemukan')
+               logger.info('data tidak ditemukan');
             }
         }).catch(err => {
+            logger.error(err);
             reject(err)
         })
     })
@@ -37,6 +41,7 @@ exports.insertData = ({boardName}) => {
         Models.Board.create({ boardName }).then(res => {
             resolve(res)
         }).catch(err => {
+            logger.error(err);
             reject(err)
         })
     })
@@ -51,6 +56,7 @@ exports.updateData = ({ id, boardName }) => {
                reject('id tidak ditemukan')
            }
         }).catch(err => {
+            logger.error(err);
             reject(err)
         })
     })
@@ -62,9 +68,11 @@ exports.deleteData = (id) => {
            if(res === 1){
                resolve(res)
            }else{
+               logger.info('id tidak ditemukan');
                reject('id tidak ditemukan')
            }
         }).catch(err => {
+            logger.error(err);
             reject(err)
         })
     })

@@ -8,6 +8,7 @@ exports.getTaksByBoard = (boardId) => {
         }).then(res => {
             resolve(res)
         }).catch(err => {
+            logger.error(err);
             reject(err)
         })
     })
@@ -21,6 +22,7 @@ exports.insertData = ({boardId, taskName}) => {
             .then(res => {
                 resolve(res)
             }).catch(err => {
+                logger.error(err);
                 reject(err)
             })
         }else{
@@ -38,6 +40,7 @@ exports.updateData = ({id, taskName}) => {
                reject('id tidak ditemukan')
            }
         }).catch(err => {
+            logger.error(err);
             reject(err)
         })
     })
@@ -52,6 +55,7 @@ exports.deleteData = (id) => {
                reject('id tidak ditemukan')
            }
         }).catch(err => {
+            logger.error(err);
             reject(err)
         })
     })

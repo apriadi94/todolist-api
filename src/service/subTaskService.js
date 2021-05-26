@@ -11,6 +11,7 @@ exports.insertData = ({taskId, subTaskName}) => {
                 reject(err)
             })
         }else{
+            logger.error('task id tidak ada');
             reject('task id tidak ada')
         }
     })
@@ -25,6 +26,7 @@ exports.updateData = (id, body) => {
                reject('id tidak ditemukan')
            }
         }).catch(err => {
+            logger.error(err);
             reject(err)
         })
     })
@@ -39,6 +41,7 @@ exports.deleteData = (id) => {
                reject('id tidak ditemukan')
            }
         }).catch(err => {
+            logger.error(err);
             reject(err)
         })
     })
