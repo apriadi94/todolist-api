@@ -6,11 +6,11 @@ exports.get = async (req, res) => {
         res.json({
             status : 'sukses',
             data : result
-        }).catch(err => {
-            res.json({
-                status : 'error',
-                message : err
-            })
+        })
+    }).catch(err => {
+        res.json({
+            status : 'error',
+            message : err
         })
     })
 }
