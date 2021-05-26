@@ -12,7 +12,15 @@ exports.getAllData = () => {
 
 exports.getDataById = (id) => {
     return new Promise((resolve, reject) => {
-        Models.Board.findOne({ where : { id } }).then(res => {
+        Models.Board.findOne({ 
+            include : [
+                {
+                    association : 'taks',
+                    include : ['subtaks']
+                },
+            ],
+            where : { id }, 
+        }).then(res => {
             if(res){
                resolve(res)
             }else{

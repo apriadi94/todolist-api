@@ -17,17 +17,17 @@ module.exports = (sequelize, DataTypes) => {
     taksId: {
       type : DataTypes.INTEGER,
       references: { model: 'taks', key: 'id' },
-      field: 'taks_id',
+      field: 'task_id',
     },
     subTaksName: {
       type : DataTypes.STRING,
-      field: 'subtaks_name',
+      field: 'subtask_name',
     },
     status: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'SubTaks',
-    tableName : 'subtaks',
+    tableName : 'subtasks',
     createdAt: 'created_at',
     updatedAt: 'updated_at',
   });

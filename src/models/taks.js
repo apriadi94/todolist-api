@@ -22,12 +22,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     taksName: {
       type : DataTypes.STRING,
-      field: 'taks_name',
+      field: 'task_name',
     }
   }, {
     sequelize,
     modelName: 'Taks',
-    tableName : 'taks',
+    tableName : 'tasks',
     createdAt: 'created_at',
     updatedAt: 'updated_at',
   });
