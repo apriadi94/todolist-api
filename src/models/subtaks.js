@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class SubTaks extends Model {
+  class SubTask extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,23 +13,23 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
-  SubTaks.init({
-    taksId: {
+  SubTask.init({
+    taskId: {
       type : DataTypes.INTEGER,
-      references: { model: 'taks', key: 'id' },
+      references: { model: 'tasks', key: 'id' },
       field: 'task_id',
     },
-    subTaksName: {
+    subtaskName: {
       type : DataTypes.STRING,
       field: 'subtask_name',
     },
     status: DataTypes.BOOLEAN
   }, {
     sequelize,
-    modelName: 'SubTaks',
+    modelName: 'SubTask',
     tableName : 'subtasks',
     createdAt: 'created_at',
     updatedAt: 'updated_at',
   });
-  return SubTaks;
+  return SubTask;
 };

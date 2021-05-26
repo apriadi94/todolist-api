@@ -1,8 +1,8 @@
-const taksService = require('../service/taksService')
+const taskService = require('../service/taskService')
 
 exports.get = async (req, res) => {
     const { boardId } = req.query
-    taksService.getTaksByBoard(boardId).then(result => {
+    taskService.getTaksByBoard(boardId).then(result => {
         res.json({
             status : 'sukses',
             data : result
@@ -16,9 +16,9 @@ exports.get = async (req, res) => {
 }
 
 exports.add = (req, res) => {
-    const { boardId, taksName } = req.body
+    const { boardId, taskName } = req.body
 
-    taksService.insertData({ boardId, taksName }).then(() => {
+    taskService.insertData({ boardId, taskName }).then(() => {
         res.json({
             status : 'sukses',
             message : 'berhasil menambah taks'
@@ -33,9 +33,9 @@ exports.add = (req, res) => {
 
 exports.edit = (req, res) => {
     const { id } = req.params
-    const { taksName } = req.body
+    const { taskName } = req.body
     
-    taksService.updateData({id, taksName}).then(() => {
+    taskService.updateData({id, taskName}).then(() => {
         res.json({
             status : 'sukses',
             message : 'berhasil mengubah'
@@ -51,7 +51,7 @@ exports.edit = (req, res) => {
 exports.delete = (req, res) => {
     const { id } = req.params
 
-    taksService.deleteData(id).then(() => {
+    taskService.deleteData(id).then(() => {
         res.json({
             status : 'sukses',
             message : 'berhasil di hapus'

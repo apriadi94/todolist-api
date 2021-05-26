@@ -2,8 +2,8 @@ const Models = require('../models')
 
 exports.getTaksByBoard = (boardId) => {
     return new Promise((resolve, reject) => {
-        Models.Taks.findAll({ 
-            include : ['subtaks'],
+        Models.Task.findAll({ 
+            include : ['substask'],
             where : { boardId } 
         }).then(res => {
             resolve(res)
@@ -13,11 +13,11 @@ exports.getTaksByBoard = (boardId) => {
     })
 }
 
-exports.insertData = ({boardId, taksName}) => {
+exports.insertData = ({boardId, taskName}) => {
     return new Promise(async (resolve, reject) => {
         const countBoard = await Models.Board.count({ where : { id : boardId } })
         if(countBoard > 0){
-            Models.Taks.create({ boardId, taksName })
+            Models.Task.create({ boardId, taskName })
             .then(res => {
                 resolve(res)
             }).catch(err => {
@@ -29,9 +29,9 @@ exports.insertData = ({boardId, taksName}) => {
     })
 }
 
-exports.updateData = ({id, taksName}) => {
+exports.updateData = ({id, taskName}) => {
     return new Promise((resolve, reject) => {
-        Models.Taks.update({ taksName }, { where : { id } }).then(res => {
+        Models.Task.update({ taskName }, { where : { id } }).then(res => {
            if(res[0] === 1){
                resolve(res)
            }else{
@@ -45,7 +45,7 @@ exports.updateData = ({id, taksName}) => {
 
 exports.deleteData = (id) => {
     return new Promise((resolve, reject) => {
-        Models.Taks.destroy({ where : { id } }).then(res => {
+        Models.Task.destroy({ where : { id } }).then(res => {
            if(res === 1){
                resolve(res)
            }else{

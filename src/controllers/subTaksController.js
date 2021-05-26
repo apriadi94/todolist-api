@@ -1,10 +1,10 @@
 
-const subTaksService = require('../service/subTaksService')
+const subTaskService = require('../service/subTaskService')
 
 exports.add = (req, res) => {
-    const { taksId, subTaksName } = req.body
+    const { taskId, subTaskName } = req.body
 
-    subTaksService.insertData({ taksId, subTaksName }).then(() => {
+    subTaskService.insertData({ taskId, subTaskName }).then(() => {
         res.json({
             status : 'sukses',
             message : 'berhasil menambah subtaks'
@@ -20,7 +20,7 @@ exports.add = (req, res) => {
 exports.edit = (req, res) => {
     const { id } = req.params
 
-    subTaksService.updateData(id, req.body).then(() => {
+    subTaskService.updateData(id, req.body).then(() => {
         res.json({
             status : 'sukses',
             message : 'berhasil mengubah'
@@ -36,7 +36,7 @@ exports.edit = (req, res) => {
 exports.delete = (req, res) => {
     const { id } = req.params
 
-    subTaksService.deleteData(id).then(() => {
+    subTaskService.deleteData(id).then(() => {
         res.json({
             status : 'sukses',
             message : 'berhasil di hapus'

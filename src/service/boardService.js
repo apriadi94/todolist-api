@@ -15,8 +15,8 @@ exports.getDataById = (id) => {
         Models.Board.findOne({ 
             include : [
                 {
-                    association : 'taks',
-                    include : ['subtaks']
+                    association : 'task',
+                    include : ['subtask']
                 },
             ],
             where : { id }, 
